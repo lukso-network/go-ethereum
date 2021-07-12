@@ -309,6 +309,7 @@ func (pandora *Pandora) Loop() {
 				work.errc <- errNoMiningWork
 			} else {
 				work.res <- s.currentWork
+				log.Debug("triggered fetchWorkCh from pandora loop", "currentWork", s.currentWork)
 			}
 
 		case result := <-s.submitWorkCh:
